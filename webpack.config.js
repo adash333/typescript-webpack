@@ -1,7 +1,14 @@
 const path = require('path');
 
 module.exports = {
-    mode: 'develoment', // "production" | "development" | "none"
+    mode: 'development', // "production" | "development" | "none"
+
+    // ローカル開発用環境を立ち上げる
+    // 実行時にブラウザが自動的に localhost を開く
+    devServer: {
+        contentBase: "dist",
+        open: true
+    },
 
     // メインとなるJavaScriptファイル（エントリーポイント）
     entry: './src/index.ts',
@@ -19,6 +26,7 @@ module.exports = {
             use: 'ts-loader'    
         }]
     },
+
     // import文で .tsファイルを解決するため
     resolve: {
         modules: [
